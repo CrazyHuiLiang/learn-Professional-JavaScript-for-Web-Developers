@@ -1,2 +1,1 @@
-# JavaScript-
-Learn js from JavaScript高级程序设计.
+# Learn js from 《Professional JavaScript for Web Developers》
