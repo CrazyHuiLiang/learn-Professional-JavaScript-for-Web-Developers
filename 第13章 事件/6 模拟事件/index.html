@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟事件</title>
+</head>
+<body>
+
+<button id="click">click</button>
+
+
+<script>
+    let btn = document.getElementById('click');
+
+
+    /*
+    // Deprecated
+    let event = document.createEvent('MouseEvents');
+    event.initMouseEvent('click', true, true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+    btn.dispatchEvent(event);
+    */
+
+    //模拟点击事件
+    btn.onclick = function (e) {
+        console.log('模拟点击事件');
+    };
+    let event =  new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+    });
+    btn.dispatchEvent(event);
+
+
+    btn.addEventListener('myEvent', function (e) {
+
+        console.log('自定义事件');
+    }, false);
+    let myEvent = document.createEvent('CustomEvent');
+    myEvent.initCustomEvent('myEvent',true, true,null);
+    btn.dispatchEvent(myEvent);
+
+
+
+
+
+</script>
+</body>
+</html>

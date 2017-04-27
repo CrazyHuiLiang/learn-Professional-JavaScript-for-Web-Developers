@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <title>node</title>
+</head>
+<body id="body" name="testBody" haha="hehe">
+    <script>
+        var a = document.getElementsByTagName("body")[0];
+        document.write(a.nodeType+ a.nodeName + a.nodeValue);
+        document.write("<br>");
+        document.write("<br>");
+
+        document.write(a.childNodes[0]);
+        document.write("<br>");
+
+        document.write(a.childNodes.item(1));
+        document.write("<br>");
+
+        document.write(a.childNodes.length);
+        document.write("<br>");
+
+        var arrayOfNodes = Array.prototype.slice.call(a.childNodes, 0);
+        document.write(arrayOfNodes);
+        document.write("<br>");
+
+
+        document.write(a.childNodes[0].parentNode);
+        document.write("<br>");
+
+        document.write(a.childNodes[0].previousSibling);
+        document.write("<br>");
+
+        document.write(a.childNodes[0].nextSibling);
+        document.write("<br>");
+
+        document.write(a.firstChild);
+        document.write("<br>");
+
+        document.write(a.lastChild);
+        document.write("<br>");
+
+        document.write(a.childNodes[0]);
+        document.write("<br>");
+
+
+        document.write(document.doctype);
+        document.write("<br>");
+
+        document.documentElement.onload = function(){
+            alert(12);
+        };
+        document.body.onload = function(){
+            alert(123);
+        };
+        document.write("<br>");
+
+
+        window.document.write("asdfasdfasdfasdf");
+        document.write("<br>");
+
+
+        document.write(document.title);
+        document.write("<br>");
+
+        document.write(document.URL);
+        document.write("<br>");
+
+        document.write(document.domain);
+        document.write("<br>");
+
+        document.write(document.referrer);
+        document.write("<br>");
+
+
+        document.write(document.implementation.hasFeature("XML", "5.0"));
+        document.write("<br>");
+
+
+
+        window.onload = function(){
+            document.write("window.onload");
+
+            /*
+            document.write("<br>");
+            document.open("text/html","replace");
+            document.write("document.open");
+            document.close();
+            */
+            document.write("<br>");
+            document.write("<br>");
+
+
+
+            document.write(a.id);
+            document.write("<br>");
+            document.write(a.className);
+            document.write("<br>");
+            document.write(a.title);
+            document.write("<br>");
+            document.write(a.dir);
+            document.write("<br>");
+
+            a.setAttribute("id", "bodyElem");
+//            document.write(a.innerText);
+            document.write(a.getAttribute("id"));
+            document.write("<br>");
+
+
+
+            document.write(a.attributes);
+            document.write("<br>");
+            document.write(a.attributes["id"]);
+            document.write("<br>");
+
+
+            function outputAttributes(element){
+                var pairs = [],
+                        attrName,
+                        attrValue,
+                        i,
+                        len;
+                for (i=0, len= element.attributes.length; i<len; i++){
+                    attrName = element.attributes[i].nodeName;
+                    attrValue = element.attributes[i].nodeValue;
+
+                    if (element.attributes[i].specified){
+                        pairs.push(attrName + "=\"" + attrValue + "\"");
+                    }
+                }
+
+                return pairs.join(' ');
+            }
+            document.write(outputAttributes(a));
+
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+
+
+            console.info(a.attributes);
+            console.info(a.attributes["id"]);
+            console.info(a.attributes["id"].value);
+            console.info(a.attributes["id"].nodeValue);
+
+        };
+
+    </script>
+</body>
+</html>

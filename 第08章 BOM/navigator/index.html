@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigater</title>
+</head>
+<body>
+    <script>
+        document.write(navigator.appCodeName + "<br>");
+        document.write(navigator.appName + "<br>");
+        document.write(navigator.appVersion + "<br>");
+        document.write(navigator.cookieEnabled + "<br>");
+        document.write(navigator.javaEnabled() + "<br>");
+        document.write(navigator.language + "<br>");
+        document.write(navigator.onLine + "<br>");
+        document.write(navigator.platform + "<br>");
+        document.write(navigator.plugins + "<br>");
+        document.write(navigator.product + "<br>");
+        document.write(navigator.userAgent + "<br>");
+        document.write(  "<br>");
+
+        for(var i =0; i<navigator.plugins.length; i++) {
+            document.write(navigator.plugins[i].name + "<br>");
+        }
+    </script>
+</body>
+</html>

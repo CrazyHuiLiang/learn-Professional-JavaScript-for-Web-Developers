@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+</head>
+<body>
+
+    <script>
+        //将窗口移动到屏幕左上角/经过测试证明没有效果,有可能是被浏览器屏蔽掉了,下面的方法同样
+        window.moveTo(0,0);
+
+        // 将窗口向下移动100像素
+        window.moveBy(0, 100);
+
+        //调整窗口的大小
+        window.resizeTo(100, 100);
+        window.resizeBy(-10, -10);
+
+        //获取窗口的位置
+        var leftPos = (typeof  window.screenLeft == "number") ? window.screenLeft : window.screenX;
+        var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screenY;
+        document.write("left: "+leftPos + " ,top: " + topPos + "<br>");
+
+        //获取窗口的大小
+        var pageWidth = window.innerWidth,
+                pageHeight = window.innerHeight;
+        document.write(pageWidth + " , " + pageHeight + "<br>");
+
+        if(typeof  pageWidth != "number") {
+            if (document.compatMode == "CSS1Compat") {
+                pageWidth = document.documentElement.clientWidth;
+                pageHeight = document.documentElement.clientHeight;
+            } else {
+                pageWidth = document.body.clientWidth;
+                pageHeight = document.body.clientHeight;
+            }
+        }
+        document.write(pageWidth + " , " + pageHeight + "<br>");
+
+        var newWindow = window.open("http://www.baidu.com", "zhangHuiLiang", "location=no, height=400, width=400, top=100, left=10,resizable=no");
+        newWindow.document.write(newWindow.name + ","+ newWindow.opener);
+        newWindow.resizeBy(100, 200);
+        newWindow.moveBy(100, -100);
+        newWindow.close();
+    </script>
+</body>
+</html>

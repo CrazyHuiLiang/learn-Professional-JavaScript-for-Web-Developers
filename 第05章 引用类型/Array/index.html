@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        var numbers = [1,2,3,4,5,6,7];
+        var everyResult = numbers.every(function(item, index, array) {
+
+            document.write(everyResult + item + index + array + "<br>");
+            return item>2;
+        });
+        document.write(everyResult + "<br><br>");
+
+
+        var someResult = numbers.some(function(item, index, array) {
+
+            document.write( item +","+ index + "<br>");
+            return item>2;
+        });
+        document.write(someResult + "<br>" + "<br>");
+
+
+        var filterResult = numbers.filter(function(item, index, array) {
+            document.write( item +","+ index + "<br>");
+            return item>2;
+        });
+        document.write(filterResult + "<br>" + "<br>");
+
+
+        var mapResult = numbers.map(function(item, index, array){
+            return item + "km";
+        });
+        document.write(mapResult + "<br>" + "<br>");
+
+
+        numbers.forEach(function(item, index, array){
+            document.write( item +","+ index + "<br>");
+        });
+        document.write("<br>" + "<br>");
+
+
+        numbers.reduce(function(prev, cur, index, array){
+            document.write( prev +"," + cur + "," + index + "<br>");
+            return cur;
+        });
+
+
+    </script>
+</body>
+</html>

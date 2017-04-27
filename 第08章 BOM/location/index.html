@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+    <script>
+
+        document.write(location.hash +"<br>");
+        document.write(location.host +"<br>");
+        document.write(location.hostname +"<br>");
+        document.write(location.href +"<br>");
+        document.write(location.pathname +"<br>");
+        document.write(location.port +"<br>");
+        document.write(location.protocol +"<br>");
+        document.write(location.search +"<br>");
+
+        function getQueryStringArgs(){
+            var gs = location.search.length >0 ? location.search.substring(1) : "",
+                    args = {},
+                    items = gs.length ? gs.split("&") : [],
+                    item = null,
+                    name = null,
+                    value = null,
+                    i = 0,
+                    len = items.length;
+
+            //逐一将每一项添加到args对象中
+            for (i=0; i<len; i++) {
+                item = items[i].split("=");
+                name = decodeURIComponent(item[0]);
+                value = decodeURIComponent(item[1]);
+                if (name.length) {
+                    args[name] = value;
+                }
+            }
+            return args;
+        }
+
+        var args = getQueryStringArgs();
+        document.write(args.name+"<br>");
+        document.write(args.age+"<br>");
+
+        //location.hash = "aaaaa";
+//        location.replace("http://www.baidu.com");
+//        location.reload();
+//            location.reload(true);
+        document.getElementsByTagName("body")[0].onload = function(){
+
+        };
+    </script>
+</body>
+</html>
