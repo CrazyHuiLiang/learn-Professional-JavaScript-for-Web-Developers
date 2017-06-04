@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨浏览器的事件处理程序</title>
+</head>
+<body>
+
+<button id="myBtn">click me</button>
+<script src="../EventUtil.js"></script>
+<script>
+    var btn = document.getElementById('myBtn');
+
+    EventUtil.addHandler(btn, 'click', hello);
+
+    //删除事件处理程序
+//    EventUtil.removeHandler(btn, 'click', hello);
+
+    function hello() {
+        alert('hello world');
+        alert(this.innerHTML);
+    }
+
+</script>
+</body>
+</html>

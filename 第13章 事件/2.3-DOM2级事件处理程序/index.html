@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM2级事件处理程序</title>
+</head>
+<body>
+
+<p>与DOM0级方法一样，这里添加的事件处理程序也是在其依附的元素的作用域中运行的。使用DOM2级方法添加事件处理程序的主要好处是可以添加多个事件处理程序</p>
+<button id="myBtn">click me</button>
+
+<p>通过addEventListener()添加的事件处理程序只能使用removeEventListener()来移除；移除时传入的参数与添加处理程序时使用的参数相同。这也意味通过addEventListener()添加的匿名函数将无法移除</p>
+
+大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以最大限度地兼容各种浏览器。最好只在需要在事件到达目标之前截获它的时候将事件处理程序添加到捕获阶段。
+
+<script>
+    var btn = document.getElementById('myBtn');
+
+    btn.addEventListener('click', function () {
+        alert('button id：'+this.id);
+    }, false);
+
+
+    function hello() {
+        alert('hello world');
+    }
+    btn.addEventListener('click', hello, false);
+    //删除事件处理程序
+    btn.removeEventListener('click', hello, false);
+
+</script>
+</body>
+</html>

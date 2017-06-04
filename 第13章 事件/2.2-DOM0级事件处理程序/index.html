@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM0级事件处理程序</title>
+</head>
+<body>
+
+<p>使用DOM0级方法指定的事件处理程序被认为是元素的方法，因此，这时候的事件处理程序是在元素的作用域中运行（程序中的this引用当前元素）</p>
+<button id="myBtn">click me</button>
+<script>
+    var btn = document.getElementById('myBtn');
+    btn.onclick = function () {
+        alert('button id：'+this.id);
+    };
+
+    //删除事件处理程序
+    //btn.onclick = null;
+</script>
+</body>
+</html>

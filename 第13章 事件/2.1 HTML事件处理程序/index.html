@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML事件处理程序</title>
+</head>
+<body>
+
+<p>在HTML中定义事件处理程序可以包含要执行的具体动作，也可以调用在页面其他地方定义的脚本</p>
+<input type="button" value="click me" onclick="showMessage()">
+
+<p>这样会创建一个封装着元素属性值的函数。这个函数中有一个局部变量event，也就是事件对象。通过event变量，可以直接访问事件对象，你不用自己定义它，也不用从函数的参数列表中读取。</p>
+<input type="button" value="click me" onclick="alert('事件类型是：' + event.type)">
+
+<p>在这个函数内部，this值等于事件目标元素</p>
+<input type="button" value="click me." onclick="alert('this.value='+this.value)">
+
+<p>关于这个动态创建的函数，另一个有意思的地方是他扩展作用域的方式，在这个函数内部，可以像访问局部变量一样访问documen及该元素本身的成员。</p>
+<input type="button" value="click me." onclick="alert(value)">
+
+<p>如果当前元素是一个表单输入元素，则作用域中还会包含访问表单元素（父元素）的入口</p>
+<form method="post">
+    <input type="text" name="username" value="">
+    <input type="button" value="Echo Username" onclick="alert(username.value)">
+</form>
+
+<script>
+    function showMessage() {
+        alert('hello world!');
+    }
+
+</script>
+</body>
+</html>
