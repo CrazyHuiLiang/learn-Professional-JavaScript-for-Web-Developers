@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File API</title>
+</head>
+<body>
+
+<input id="files-list" type="file">
+
+<script src="../../第13章%20事件/EventUtil.js"></script>
+<script>
+    var filesList = document.getElementById('files-list');
+    EventUtil.addHandler(filesList, "change", function(event){
+
+        var files = EventUtil.getTarget(event).files;
+        var i = 0;
+        var len = files.length;
+
+        while (i<len){
+
+            var f = files[i];
+            var s = f.name + ' ('+ f.type + ', ' + f.size + ' bytes) ';
+            console.log(s);
+            i++;
+        }
+    });
+
+</script>
+</body>
+</html>

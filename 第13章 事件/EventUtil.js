@@ -15,6 +15,18 @@ var EventUtil = {
             element['on'+type] = handler;
         }
     },
+    getEvent: function(){
+
+    },
+    getTarget: function(event){
+        return event.target || event.srcElement;
+    },
+    preventDefault: function(){
+
+    },
+    stopPropagation: function(){
+
+    },
     removeHandler: function (element, type, handler) {
 
         if(element.removeEventListener){
