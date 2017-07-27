@@ -7,14 +7,13 @@
 <body>
 
 <input id="files-list" type="file">
-<div id="output"></div>
 <div id="progress"></div>
+<div id="output"></div>
 <script src="../../第13章%20事件/EventUtil.js"></script>
 <script>
     var filesList = document.getElementById('files-list');
     EventUtil.addHandler(filesList, "change", function(event){
-        var info = '',
-                output = document.getElementById('output'),
+        var output = document.getElementById('output'),
                 progress = document.getElementById('progress'),
                 files = EventUtil.getTarget(event).files,
                 type = 'default',
@@ -42,7 +41,7 @@
             var html = '';
             switch (type){
                 case 'image': {
-                    html = '<img src="' + reader.result + '>';
+                    html = '<img src="' + reader.result + '">';
                 }break;
                 case 'text': {
                     html = reader.result;
