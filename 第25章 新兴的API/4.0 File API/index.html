@@ -5,8 +5,13 @@
     <title>File API</title>
 </head>
 <body>
+<p>
+    File API在表单中的文件输入字段的基础上，又添加了一些直接访问文件信息的接口。
+    HTML5在DOM中为文件输入元素添加了一个files集合。
+    在通过文件输入字段选择了一或多个文件时，files集合中包含一组File对象
+</p>
 
-<input id="files-list" type="file">
+<input id="files-list" type="file" multiple>
 
 <script src="../../第13章%20事件/EventUtil.js"></script>
 <script>
@@ -20,8 +25,13 @@
         while (i<len){
 
             var f = files[i];
+            console.log(f);
+
             var s = f.name + ' ('+ f.type + ', ' + f.size + ' bytes) ';
-            console.log(s);
+            var div = document.createElement('div');
+            div.innerHTML = s;
+            document.body.appendChild(div);
+
             i++;
         }
     });

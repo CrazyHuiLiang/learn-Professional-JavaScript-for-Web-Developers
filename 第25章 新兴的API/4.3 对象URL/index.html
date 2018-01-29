@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象URL</title>
+</head>
+<body>
+
+
+<p>
+    对象URL也被称为blob URL，指的是引用保存在File或Blob中数据的URL。
+    使用对象URL的好处是可以不必把文件内容读取到JavaScript中而直接使用文件内容。
+    为此，只要在需要文件内容的地方提供对象URL即可。
+</p>
+<p>
+    要创建对象URL，可以使用window.URL.createObjectURL() 方法，并传入File或Blob对象。返回一个字符串，指向一块内存的地址。因为这个字符串是URL，所以在DOM中也能使用。
+</p>
+<input id="files-list" type="file">
+<div id="output"></div>
+
+
+<script src="../../第13章%20事件/EventUtil.js"></script>
+<script>
+    var filesList = document.getElementById('files-list');
+    EventUtil.addHandler(filesList, "change", function(event){
+        var output = document.getElementById('output'),
+            files = EventUtil.getTarget(event).files,
+            url = window.URL.createObjectURL(files[0]);
+
+        if (url){
+            if (/image/.test(files[0].type)){
+                output.innerHTML = `<img src="${url}">`;
+            }
+            else {
+                output.innerHTML = "Not an image.";
+            }
+        }
+        else {
+            alert("Your browser doesn't support object URLs");
+        }
+    });
+</script>
+</body>
+</html>

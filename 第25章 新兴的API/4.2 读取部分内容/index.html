@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>读取部分内容</title>
+</head>
+<body>
+
+
+<p>
+    File对象支持一个slice()方法，slice()方法接收两个参数：起始字节及要读取的字节数。返回一个Blob的实例，Blob是File类型的父类型。
+</p>
+<input id="files-list" type="file">
+<div id="output"></div>
+
+
+<script src="../../第13章%20事件/EventUtil.js"></script>
+<script>
+    var filesList = document.getElementById('files-list');
+    EventUtil.addHandler(filesList, "change", function(event){
+        var output = document.getElementById('output'),
+            files = EventUtil.getTarget(event).files,
+            blob = files[0].slice(0, 32),
+            reader = new FileReader();
+
+        if (blob){
+            reader.readAsText(blob);
+            reader.onerror = function () {
+                output.innerHTML = "Could not read file, error code is" + reader.error.code;
+            };
+            reader.onload = function () {
+                output.innerHTML = reader.result;
+            };
+        }
+        else {
+            alert("Your browser doesn't support slice();");
+        }
+    });
+</script>
+</body>
+</html>
