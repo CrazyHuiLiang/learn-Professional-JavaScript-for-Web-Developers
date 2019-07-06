@@ -17,11 +17,11 @@ var antherPerson = object(person);
 antherPerson.name = "Greg";
 antherPerson.friends.push("Rob");
 
-console.log(person.name);
-console.log(person.friends);
+console.log(person.name); // Bill
+console.log(person.friends); // [ 'Annie', 'Frank', 'Rob' ]
 
-console.log(antherPerson.name);
-console.log(antherPerson.friends);
+console.log(antherPerson.name); // Greg
+console.log(antherPerson.friends); // [ 'Annie', 'Frank', 'Rob' ]
 
 
 /*
@@ -36,6 +36,7 @@ var antherPerson2 = Object.create(person, {
 antherPerson2.friends.push("Shelby");
 console.log(antherPerson2.name);
 console.log(antherPerson2.friends);
+console.log(antherPerson.friends);
 
 
 /*

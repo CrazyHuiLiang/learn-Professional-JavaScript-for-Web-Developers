@@ -18,21 +18,21 @@ function SubType(name, age) {
     this.age = age;
 }
 
-var instance1 = new SubType("Bill", 22);
+var instance1 = new SubType("Bill", 22); 
 instance1.colors.push("black");
 
-console.log(instance1.name);
-console.log(instance1.age);
-console.log(instance1.colors);
+console.log(instance1.name); // Bill
+console.log(instance1.age); // 22
+console.log(instance1.colors); // [ 'red', 'blue', 'green', 'black' ]
 
 var instance2 = new SubType("Annie", 24);
-console.log(instance2.name);
-console.log(instance2.age);
-console.log(instance2.colors);
-console.log(instance2.sayName);
+console.log(instance2.name); // Annie
+console.log(instance2.age); // 24
+console.log(instance2.colors); // [ 'red', 'blue', 'green' ]
+console.log(instance2.sayName); // undefined
 
 var super1 = new SuperType();
-console.log(super1.sayName);
+console.log(super1.sayName); // [Function]
 
 /*
 

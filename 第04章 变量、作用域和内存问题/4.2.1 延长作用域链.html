@@ -1,0 +1,37 @@
+<html>
+	<body>
+		<script>
+			function buildUrl() {
+				var qs = '?test=test';
+				with(location) {
+					var testVar = 5;
+					var url = href + qs;
+				}
+				console.log(testVar);
+				return url;
+			}
+
+			console.log(buildUrl());
+
+
+
+			var color = 'red';
+			function printColor() {
+				console.log(this, this.color);
+			}
+			
+			let co = {
+				color: 'blue',
+				printColor1: printColor,
+				printColor2: () => {
+					console.log(this, this.color);
+				}
+			};
+			
+			printColor();
+			co.printColor1();
+			co.printColor2();
+
+		</script>
+	</body>
+</html>

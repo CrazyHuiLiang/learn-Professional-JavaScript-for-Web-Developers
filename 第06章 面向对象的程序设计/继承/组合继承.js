@@ -24,27 +24,25 @@ SubType.prototype.sayAge = function () {
 };
 
 
-
-
 var instance1 = new SubType("Bill", 22);
 instance1.colors.push("black");
 
-instance1.sayName();
-instance1.sayAge();
-console.log(instance1.colors);
+instance1.sayName(); // Bill
+instance1.sayAge(); // 22
+console.log(instance1.colors); // [ 'red', 'blue', 'green', 'black' ]
 
 var instance2 = new SubType("Annie", 24);
-instance2.sayName();
-instance2.sayAge();
-console.log(instance2.colors);
+instance2.sayName(); // Annie
+instance2.sayAge(); // 24
+console.log(instance2.colors); // [ 'red', 'blue', 'green' ]
 
-console.log(instance1 instanceof Object);
-console.log(instance1 instanceof SuperType);
-console.log(instance1 instanceof SubType);
+console.log(instance1 instanceof Object); // true
+console.log(instance1 instanceof SuperType); // true
+console.log(instance1 instanceof SubType); // true
 
-console.log(Object.prototype.isPrototypeOf(instance1));
-console.log(SuperType.prototype.isPrototypeOf(instance1));
-console.log(SubType.prototype.isPrototypeOf(instance1));
+console.log(Object.prototype.isPrototypeOf(instance1)); // true
+console.log(SuperType.prototype.isPrototypeOf(instance1)); // true
+console.log(SubType.prototype.isPrototypeOf(instance1)); // true
 
 
 /*
